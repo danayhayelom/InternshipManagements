@@ -1,136 +1,168 @@
-import './Post.css'
-import Axios from 'axios'
-import React,{useState} from 'react'
-function Postinternship(){
-  const[inputs,setinputs]=useState([]);
-  const[ inpute2,setinput2]=useState([]);
-  const[inpute3,setinput3]=useState([]);
-  const datass={
-    Department:"",
-    compnayname:"",
-    location:"",
-    numberOfstudent:""
-  }
-  const [submite1,setsubmite1]=useState(datass)
-  const [ submite,setsumbite]=useState(datass);
-  function enter(e){
-    const{name,value}=e.target;
-    setsumbite({...submite,[name]:value});
-  }
- function enters(e){
-const{name,value}=e.target;
-setsubmite1({...submite1,[name]:value});
- }
-  const handleAddinpute=()=>{
-    setinputs((prevInputs) => [...prevInputs, ''])
-    setinput2((previnput2)=>[...previnput2,''])
-    setinput3((prveinput3)=>[...prveinput3,''])
-    
-  }
-function handleopp(){
-  const data={
-    DEPARTMENT:submite.Department,
-    COMPANY_NAME:submite.compnayname,
-    LOCATION:submite.location,
-    NUMBER_STUDENT:submite.numberOfstudent,
+import Axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+function Postinternship() {
+  const [inputs, setInputs] = useState([]);
+  const [inpute2, setInput2] = useState([]);
+  const [inpute3, setInput3] = useState([]);
+
+  const datass = {
+    companyname1: '',
+    location1: '',
+    numberOfstudent: '',
+    Department: ''
+  };
+
+  const [submite1, setSubmite1] = useState(datass);
+  const [submite, setSubmite] = useState(datass);
+
+  function enter(e) {
+    const { name, value } = e.target;
+    setSubmite({ ...submite, [name]: value });
   }
-  Axios.post("http://192.168.137.173:8080/api/account/register",
-  data
-  ).then((response)=>{
-    console.log(response)
-  })
+
+  useEffect(() => {}, []);
+
+  function enters(e) {
+    const { name, value } = e.target;
+    setSubmite1({ ...submite1, [name]: value });
+  }
+
+  const handleAddInpute = () => {
+    setInputs((prevInputs) => [...prevInputs, '']);
+    setInput2((prevInput2) => [...prevInput2, '']);
+    setInput3((prevInput3) => [...prevInput3, '']);
+  };
+
+  const handleOpp = () => {
+    const data1 = {
+      companyname: submite.companyname1,
+      companylocation: submite.location1,
+      numberstudent: submite.numberOfstudent,
+      department: submite.Department
+    };
+
+    const data2 = {
+      companyname: submite1.companyname1,
+      companylocation: submite1.location1,
+      numberstudent: submite1.numberOfstudent,
+      department: submite.Department
+    };
+
+    Axios.post("http://localhost:8080/api/v1/admin/postinternship", data1).then((response) => {
+      console.log(response);
+    });
+    Axios.post("http://localhost:8080/api/v1/admin/postinternship", data2).then((response) => {
+      console.log(response);
+    });
+
+    const count = [...inputs];
+    for (let i = 0; i < count.length; i++) {
+      const array1 = [...inputs];
+      const array2 = [...inpute2];
+      const array3 = [...inpute3];
+      const data3 = {
+        companyname: array1[i],
+        companylocation: array2[i],
+        numberstudent: array3[i],
+        department: submite.Department
+      };
+
+      Axios.post("http://localhost:8080/api/v1/admin/postinternship", data3).then((response) => {
+        console.log(response);
+      });
+    }
+    alert("successfully Postinternship")
+  };
+
+  const handleChange1 = (index, event) => {
+    const updateInputs = [...inputs];
+    updateInputs[index] = event.target.value;
+    setInputs(updateInputs);
+  };
+
+  const handleChange2 = (index, event) => {
+    const updateInputs = [...inpute2];
+    updateInputs[index] = event.target.value;
+    setInput2(updateInputs);
+  };
+
+  const handleChange3 = (index, event) => {
+    const updateInputs = [...inpute3];
+    updateInputs[index] = event.target.value;
+    setInput3(updateInputs);
+  };
+
+  return (
+    <>
+      <div className="container">
+        <label> Choose Department </label>
+        <select className="form-select" name="Department" value={submite.Department} onChange={enter}>
+          <option value="">Select Department</option>
+          <option value="Industrial Engineering">Industrial Engineering</option>
+          <option value="Mechanical Engineering">Mechanical Engineering</option>
+          <option value="Civil Engineering">Civil Engineering</option>
+          <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
+          <option value="Chemical Engineering">Chemical Engineering</option>
+        </select>
+        <br />
+
+        <button className="btn btn-primary" onClick={handleAddInpute}>Add</button>
+
+        <table className="table table-bordered mt-3">
+          <thead>
+            <tr>
+              <th>Company Name</th>
+              <th>Company Location</th>
+              <th>Number of Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input className="form-control" type="text" placeholder="Enter company name" name="companyname1" value={submite.companyname1} onChange={enter} />
+              </td>
+              <td>
+                <input className="form-control" type="text" placeholder="Enter location name" name="location1" value={submite.location1} onChange={enter} />
+              </td>
+              <td>
+                <input className="form-control" type="text" placeholder="Enter number of students" name="numberOfstudent" value={submite.numberOfstudent} onChange={enter} />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input className="form-control" type="text" placeholder="Enter company name" name="companyname1" value={submite1.companyname1} onChange={enters} />
+              </td>
+              <td>
+                <input className="form-control" type="text" placeholder="Enter location name" name="location1" value={submite1.location1} onChange={enters} />
+              </td>
+              <td>
+                <input className="form-control" type="text" placeholder="Enter number of students" name="numberOfstudent" value={submite1.numberOfstudent} onChange={enters} />
+              </td>
+            </tr>
+
+            {inputs.map((input, index) => (
+              <tr key={index}>
+                <td>
+                  <input className="form-control" value={input} onChange={(event) => handleChange1(index, event)} placeholder="Company name" />
+                </td>
+                <td>
+                  <input className="form-control" value={inpute2[index]} onChange={(event) => handleChange2(index, event)} placeholder="Company location" />
+                </td>
+                <td>
+                  <input className="form-control" value={inpute3[index]} onChange={(event) => handleChange3(index, event)} placeholder="Number of students" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <button className="btn btn-success" onClick={handleOpp}>Submit Opportunity</button>
+      </div>
+    </>
+  );
 }
-  const handlechange1=(index,event)=>{
-    const updateinputs=[...inputs];
-    updateinputs[index]=event.target.value
-    setinputs(updateinputs);
-  }
-  const handlechange2=(index,event)=>{
-    const updateinputs=[...inpute2];
-    updateinputs[index]=event.target.value
-    setinput2(updateinputs);
-  }
-  const handlechange3=(index,event)=>{
-    const updateinputs=[...inpute3];
-    updateinputs[index]=event.target.value
-    setinput3(updateinputs);
-  }
-  
-    return(
-      <>
-        <div className='list'>
-<label> Choose Department </label>
-  <select className='down-side'name="Department" value={submite.Department } onChange={enter}>
-    <option> Industrial Engineering </option>
-    <option> Mechanical Engineering </option>
-    <option> Civil Engineering </option>
-    <option> Electrical and Computer Engineering </option>
-    <option> Chemical Engineering</option>
-  </select><br/>
-</div>
-< div className="btn-1">
-<button onClick={handleAddinpute} > Add</button>
-</div>
-<div>
-  <table >
-    <tr>
-      <th> company name</th>
-      <th> company location</th>
-      <th>number of students</th>
-    </tr>
-    <tr>
-<td > <input type="text" placeholder="enter company name" name="compnayname"
- value={submite.compnayname} onChange={enter}/></td>
-<td > <input type="text" placeholder="enter location name"  name="location"
-value={submite.location} onChange={enter}/></td>
-<td > <input type="text" placeholder="enter number of students name" name="numberOfstudent"
-value={submite.numberOfstudent} onChange={enter}/></td>
-</tr>
 
-    <tr align='center'>
-<td  > <input type="text" placeholder="enter company name"   name="compnayname"value={submite1.compnayname}
-onChange={enters}/></td>
-<td > <input type="text" placeholder="enter location name" name="location"value={submite1.location}
- onChange={enters}/></td>
-<td > <input type="text" placeholder="enter number of students name" name="numberOfstudent"value={submite1.numberOfstudent} 
-onChange={enters}/></td>
-    </tr>    
-    <tr>
-<td>{inputs.map((input, index) => (
-        <input
-          key={index}
-          value={input}
-          onChange={(event) => handlechange1(index, event)}
-          placeholder="company name"
-        />
-      ))}</td>
-    
-    <td>{inpute2.map((inpute2, index) => (
-        <input
-    
-          key={index}
-          value={inpute2}
-          onChange={(event) => handlechange2(index, event)}
-          placeholder="company location"
-        />
-      ))}</td>
-    <td>{inpute3.map((inpute3, index) => (
-        <input
-          key={index}
-          value={inpute3}
-          onChange={(event) => handlechange3(index, event)}
-          placeholder="numbar of student"
-        />
-      ))}</td>
-      </tr>
-  </table>
-  
-        </div>
-        <button className="btn-2" onClick={handleopp}>Submite Opportunities</button>
-  
-        </>
-    )
-
-}
-export default Postinternship 
+export default Postinternship;

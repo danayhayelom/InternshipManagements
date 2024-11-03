@@ -1,11 +1,10 @@
-import { useNavigate } from 'react-router-dom';
-
+import{useNavigate} from 'react-router-dom'
 function Home(){
-    const navigate = useNavigate();
-
-  const goToAbout = () => {
-    navigate('/about');
-    }
+    const  navigate = useNavigate();
+const goToAbout=()=>{
+navigate('/');
+}
+  
     return(<div>
 <input type="text" placeholder="enter username"/>
 <input type="password" placeholder="enter password"/>

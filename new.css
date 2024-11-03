@@ -1,99 +1,56 @@
 
-.login-form {
-    width: 400px;
-    margin: auto;
-    padding: 20px;
-margin-top:10%;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color:"bg-white"; /* Shiny white color */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
-  }
-  .login-form button {
-    background-color: #4caf50;
-    color: white;
-    padding: 16px 20px; /* Increase padding for larger button */
-    margin: 10px 0; /* Increase margin for spacing between button and input fields */
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%; /* Full width */
-  }
-  .login-form input[type="text"]:focus,
-.login-form input[type="password"]:focus,
-.login-form input[type="email"]:focus {
-  border-color: #4caf50; /* Border color when input field is focused */
-  outline: none; /* Remove the default focus outline */
+.lbl {
+  display: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-left: 80px;
+ }
+  .lbl .dana {
+  justify-content: center;
+  align-items: center;
+  padding-right: 100px;
+  border-radius: 7px;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  font-style: oblique;
+ }
+ .home {
+ margin-left: 1000px;
+ }
+ .btn{
+  display: column;
+  justify-content: center;
+  align-items: center; 
+  margin-left: 400px;
+  margin-top:30px;
+  background-color: rgba(249, 252, 248, 0.863);
+  width: 430px;
+  height: 450px;
+  border: 2px solid  rgba(154, 243, 154);
+  border-radius: 25px;
+  box-shadow: 3px 3px 5px;
+ }
+.danay{
+ color:hsla(120, 6%, 13%, 0.418);
+  font-size: 20px;
+  display: row;
+  justify-content: center;
+  align-items: center; 
+  padding-right: 10px;
+  font-style: oblique;
+  font-size: 1.5em;
+  font-weight: bold;
+ 
 }
+.inputs {
+  width: 300px;
+  height:40px;
+  margin-top: 10px;
+  font-size: 1.5em;
+  border-radius: 10px;
+  font-style: oblique;
+  border-color: rgba(105, 252, 105, 0.178);
   
-  /* Style for input fields */
-.login-form input[type="text"],
-.login-form input[type="password"],
-.login-form input[type="email"] {
-  width: 400px; /* Adjust the width as needed */
-  padding: 10px;
-  margin: 8px 0;
-  display: block; /* Use block display to stack input fields */
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 18px; /* Set font size */
-  font-family: Arial, sans-serif; /* Set font family */
-  color: #333;
 }
-.login-form label{
-    font-weight: bold;
-font-size: 18px;}
-  
-/* Style for input fields */
-.login-form input[type="text"]::placeholder,
-.login-form input[type="email"]::placeholder,
-.login-form input[type="password"]::placeholder {
-  color: #999; /* Placeholder text color */
-}
-
-/* Style for the placeholder text when the input is focused */
-.login-form input[type="text"]:focus::placeholder,
-.login-form input[type="email"]:focus::placeholder,
-.login-form input[type="password"]:focus::placeholder {
-  color: transparent; /* Hide placeholder text when input is focused */
-}
-
-  
-  /* Style for the first input field */
-  .first{
-    margin-bottom: 15px;
-  }
-  
-  /* Style for the second input field */
-  .second{
-    margin-bottom: 15px;
-  }
-  
-  /* Style for the third input field */
-  .third {
-    margin-bottom: 15px;
-  }
-  
-  /* Style for the submit button */
-  .login-btn {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  .login-btn
-  p{
-    color:red;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .login-btn:hover {
-    background-color: #45a049;
-    color:white;
-  }
-  

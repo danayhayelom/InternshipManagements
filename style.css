@@ -1,0 +1,88 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa; /* Light background for contrast */
+    color: #212529; /* Dark text color */
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Sidebar Styles */
+#sidebar {
+    background-color: #343a40; /* Dark sidebar */
+    color: #ffffff; /* White text */
+    height: 100vh;
+    transition: width 0.3s; /* Smooth transition for sidebar */
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: #ffffff; /* White text */
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    transition: background-color 0.3s;
+}
+
+#sidebar a:hover {
+    background-color: #495057; /* Darker background on hover */
+}
+
+/* Active link style */
+#sidebar ul li.active a {
+    background-color: #007bff; /* Highlight active link */
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    text-align: left;
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+}
+
+/* Sub-menu Styles */
+.sub-menu {
+    display: none;
+    padding-left: 20px; /* Indent sub-menu */
+}
+
+.sub-menu.show {
+    display: block; /* Show when active */
+}
+
+/* Toggle Button */
+#toggle-btn {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 250px; /* Full width on smaller screens */
+    }
+
+    #sidebar.close {
+        width: 60px;
+    }
+}
+
+.main-content {
+    padding: 20px;
+    margin-left: 250px; 
+    transition: margin-left 0.3s;
+}
+
+.main-content.collapsed {
+    margin-left: 60px; 
+}

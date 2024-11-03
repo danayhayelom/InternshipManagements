@@ -1,0 +1,49 @@
+.form-container {
+    background-color: #f8f9fa; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 600px;
+}
+
+.logo {
+    width: 200px; 
+}
+
+h2 {
+    color: #007bff; 
+}
+
+
+input[type="text"], input[type="password"] {
+    max-width: 100%;
+    width: 100%; 
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Animation on hover */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.btn-primary:focus {
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+}
+
+.alert {
+    margin-top: 20px; /* Space above the alert */
+}
